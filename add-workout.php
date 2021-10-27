@@ -98,20 +98,48 @@ $allExercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 // echo $_SESSION['workoutName'];
                 // echo $workoutDate;
                 //echo $_SESSION['id'];
+                $workoutDate = $_SESSION['workoutDate'];
+                $userID = $_SESSION['id'];
+                $workoutName = $_SESSION['workoutName'];
+                $numExercises = $_SESSION['numExercises'];
                 
-                $sql2 = "INSERT INTO workouts VALUES (null, ?, ?, ?)";
-                echo "clears sql2";
+                $sql2 = "INSERT INTO workouts VALUES (null, '$workoutName', $numExercises, $userID, '$workoutDate')";
                 $stmt2 = $pdo->prepare($sql2);
-                echo "clears stmt2";
 
-                echo "<br> {$_SESSION['workoutName']}";
-                echo "<br> {$_SESSION['id']}";
-                echo "<br> {$_SESSION['workoutDate']}";
+                // echo "<br> {$_SESSION['workoutName']}";
+                // echo "<br> {$_SESSION['id']}";
+                // echo "<br> {$_SESSION['workoutDate']}";
                 
-                //TODO: Query is not executing, figure out why
-                $stmt2->execute($_SESSION['workoutName'], $_SESSION['id'], $_SESSION['workoutDate']);
+                $stmt2->execute();
+
+                $exerciseArray = array();
                 
-                
+                for($i=1;$i<=$numExercises;$i++) {
+                    array_push($exerciseArray, $_POST["exercise{$i}"]);
+                }
+
+                $getWorkoutID = "SELECT workoutID from workouts WHERE workoutName='$workoutName' AND userID=$userID";
+                $getWorkoutIDPrep = $pdo->prepare($getWorkoutID);
+                $getWorkoutIDPrep->execute();
+                $workoutIDarr = $getWorkoutIDPrep->fetch(PDO::FETCH_ASSOC);
+                $workoutID = $workoutIDarr['workoutID'];
+
+
+                //echo $workoutID;
+                //insert a row into workout_details for each exercise in the workout
+                foreach($exerciseArray as &$exerciseToAdd) {
+                    //get the exerciseID for the exercise we're adding to the workout_details table
+                    $getExID = "SELECT exID FROM exercises WHERE name='$exerciseToAdd'";
+                    $getExIDPrep = $pdo->prepare($getExID);
+                    $getExIDPrep->execute();
+                    $exIDarr = $getExIDPrep->fetch(PDO::FETCH_ASSOC);
+                    $exID = $exIDarr['exID'];
+                    
+                    //insert a row for the workoutID and exerciseID to workout_details table
+                    $insertExercise = "INSERT INTO workout_details VALUES ($workoutID, $exID)";
+                    $insertExercisePrep = $pdo->prepare($insertExercise);
+                    $insertExercisePrep->execute();
+                }
             }
 
         ?>

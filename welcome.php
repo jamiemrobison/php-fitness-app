@@ -24,6 +24,8 @@ for($i = 0; $i < 7; $i++) {
 }
 
 
+//TODO: This is not the intended behavior, need to fetch the workouts, then match them to the generated dates
+//if no workout exists, then put no workout/add-workout
 $sql = "SELECT * FROM workouts w INNER JOIN users u ON w.userID = u.userID WHERE username = ? 
 AND workoutDate >= ? AND workoutDate <= ?";
 
