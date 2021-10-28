@@ -95,7 +95,7 @@ print_r($workoutDayMap);
         echo "<div class=\"row\">";
         for($i = 0; $i < 7; $i++) {
             //echo "<div class=\"week-glance-item\">";
-            echo "<div class=\"col\">
+            echo "<div class=\"col d-flex align-items-stretch\">
                 <div class=\"card bg-dark text-white\" style=\"width: 10rem;\">
                 <div class=\"card-header\">{$daysOfWeekNextSevenDays[$i]}</div>
                 <div class=\"card-body\">";
