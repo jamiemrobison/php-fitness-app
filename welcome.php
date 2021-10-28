@@ -26,7 +26,7 @@ for($i = 0; $i < 7; $i++) {
 
 //TODO: This is not the intended behavior, need to fetch the workouts, then match them to the generated dates
 //if no workout exists, then put no workout/add-workout
-$sql = "SELECT * FROM workouts w INNER JOIN users u ON w.userID = u.userID WHERE username = ? 
+$sql = "SELECT w.workoutID, w.workoutName, w.workoutDate  FROM workouts w INNER JOIN users u ON w.userID = u.userID WHERE username = ? 
 AND workoutDate >= ? AND workoutDate <= ?";
 
 $stmt = $pdo->prepare($sql);
@@ -40,6 +40,33 @@ if($stmt->rowCount() < 1) {
 }
 if($stmt->rowCount() > 0)
     $nextSevenDaysWorkouts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+//print_r($daysOfWeekNextSevenDays);
+$workoutDayMap = array_fill(0, 7, null);
+
+
+//map workouts to dates for display in week glance cards
+// foreach($nextSevenDaysWorkouts as &$daysWorkout) {
+//     for($i=0;$i<count($daysOfWeekNextSevenDays);$i++) {
+//         if($daysWorkout['workoutDate'] == $daysOfWeekNextSevenDays[$i]) {
+//             $workoutDayMap["{$daysOfWeekNextSevenDays}"] = $daysWorkout['workoutName'];
+//         }
+//     }
+// }
+
+$runningDay = date('Y-m-d', strtotime($today));
+for($i=0;$i<count($daysOfWeekNextSevenDays);$i++) {
+    foreach($nextSevenDaysWorkouts as &$daysWorkout) {
+        if($runningDay == $daysWorkout['workoutDate']) {
+            $workoutDayMap[$i] = $daysWorkout['workoutName'];
+        }
+    }
+    $runningDay = date('Y-m-d', strtotime($runningDay . " + 1 days"));
+}
+
+
+print_r($workoutDayMap);
+
 ?>
  
 <!DOCTYPE html>
@@ -68,12 +95,16 @@ if($stmt->rowCount() > 0)
         echo "<div class=\"row\">";
         for($i = 0; $i < 7; $i++) {
             //echo "<div class=\"week-glance-item\">";
-            echo "<div class=\"col-sm\">
+            echo "<div class=\"col\">
                 <div class=\"card bg-dark text-white\" style=\"width: 10rem;\">
                 <div class=\"card-header\">{$daysOfWeekNextSevenDays[$i]}</div>
-                <div class=\"card-body\">
-                    
-                </div>
+                <div class=\"card-body\">";
+                if($workoutDayMap[$i] == null) {
+                    echo "No Planned Workout";
+                } else {
+                    echo $workoutDayMap[$i];
+                }
+                echo "</div>
             </div>
             </div>";
             //echo "<div class=\"week-glance-item-sub\">{$nextSevenDaysWorkouts[$i]}</div>";
