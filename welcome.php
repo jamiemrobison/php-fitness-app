@@ -35,14 +35,15 @@ $stmt->execute([$_SESSION["username"], $today, $weekAfterToday]);
 $nextSevenDaysWorkouts = array();
 
 if($stmt->rowCount() < 1) {
-    for($i=0;$i<7;$i++)
-        array_push($nextSevenDaysWorkouts, 'No Workout');
+    $$nextSevenDaysWorkouts = array_fill(0, 7, null);
 }
-if($stmt->rowCount() > 0)
-    $nextSevenDaysWorkouts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//print_r($daysOfWeekNextSevenDays);
+if($stmt->rowCount() > 0) {
+    $nextSevenDaysWorkouts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 $workoutDayMap = array_fill(0, 7, null);
+//print_r($daysOfWeekNextSevenDays);
+
 
 
 //map workouts to dates for display in week glance cards
@@ -65,7 +66,7 @@ for($i=0;$i<count($daysOfWeekNextSevenDays);$i++) {
 }
 
 
-print_r($workoutDayMap);
+//print_r($workoutDayMap);
 
 ?>
  
