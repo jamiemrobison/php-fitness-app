@@ -16,9 +16,9 @@ $daysOfWeekNextSevenDays = array();
 
 for($i = 0; $i < 7; $i++) {
     if($i == 0) {
-        $day = date('l');
+        $day = date('Y-m-d');
     } else {
-        $day = date('l', strtotime($today . " + {$i} days"));
+        $day = date('Y-m-d', strtotime($today . " + {$i} days"));
     }
     array_push($daysOfWeekNextSevenDays, $day);
 }
@@ -40,9 +40,6 @@ if($stmt->rowCount() < 1) {
 }
 if($stmt->rowCount() > 0)
     $nextSevenDaysWorkouts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-
 ?>
  
 <!DOCTYPE html>
@@ -66,17 +63,28 @@ if($stmt->rowCount() > 0)
     <br>
     <h5>Here's what you have going on this week</h3>
     
-    <div class="container-week">
+    <div class="container-fluid mx-auto" style="width: 1400px;">
         <?php
+        echo "<div class=\"row\">";
         for($i = 0; $i < 7; $i++) {
             //echo "<div class=\"week-glance-item\">";
-            echo "<div class=\"week-glance-item\">{$daysOfWeekNextSevenDays[$i]}</div>";
+            echo "<div class=\"col-sm\">
+                <div class=\"card bg-dark text-white\" style=\"width: 10rem;\">
+                <div class=\"card-header\">{$daysOfWeekNextSevenDays[$i]}</div>
+                <div class=\"card-body\">
+                    
+                </div>
+            </div>
+            </div>";
             //echo "<div class=\"week-glance-item-sub\">{$nextSevenDaysWorkouts[$i]}</div>";
             //echo "</div>";
         }
-        for($i = 0; $i < 7; $i++) {
-            echo "<div class=\"week-glance-item\">{$nextSevenDaysWorkouts[$i]}</div>";
-        }
+        echo "</div>";
+        // for($i = 0; $i < 7; $i++) {
+        //     echo "<div class=\"card\">{$nextSevenDaysWorkouts[$i]}</div>";
+        // }
+
+        //print_r($nextSevenDaysWorkouts);
         ?>
     </div>
 </body>
