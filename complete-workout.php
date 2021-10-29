@@ -12,7 +12,7 @@ $getAllUserWorkoutsPrep = $pdo->prepare($getAllUserWorkoutsSQL);
 $getAllUserWorkoutsPrep->execute();
 $allUserWorkouts = $getAllUserWorkoutsPrep->fetchAll(PDO::FETCH_ASSOC);
 
-print_r($allUserWorkouts);
+//print_r($allUserWorkouts);
 ?>
 
 <!DOCTYPE html>
@@ -81,6 +81,10 @@ print_r($allUserWorkouts);
             }
 
             if(isset($_POST['submitSets'])) {
+                $_SESSION['setsPerExercise'] = array();
+                for($j=1;$j<count($_POST);$j++) {
+                    array_push($_SESSION['setsPerExercise'], $_POST["exercise{$j}sets"]);
+                }
                 for($i=1;$i<=count($_SESSION['exerciseArray']);$i++) {
                     echo "<form action=\"/fitness-app/php-fitness-app/complete-workout.php\" method=\"post\"><div class=\"form-group\">";
                     for($j=1;$j<=$_POST["exercise{$i}sets"];$j++) {
@@ -101,7 +105,7 @@ print_r($allUserWorkouts);
                     $values[] = $value;
                 }
 
-                //print_r($_SESSION['exerciseArray']);
+                
 
                 $userID = $_SESSION['id'];
                 $workoutName = $_SESSION['workoutName'];
@@ -112,9 +116,49 @@ print_r($allUserWorkouts);
                 $workoutIDarr = $getWorkoutIDPrep->fetch(PDO::FETCH_ASSOC);
                 $workoutID = $workoutIDarr['workoutID'];
 
-                print_r($fields);
-                print_r($values);
+                // print_r($fields);
+                // echo "<br><br>";
+                // print_r($values);
+                // echo "<br><br>";
+                // print_r($_SESSION['exerciseArray']);
+                // echo "<br><br>";
+                $repsArray = array();
+                $weightArray = array();
+                for($i=0;$i<count($values)-1;$i+=2) {
+                    array_push($repsArray, $values[$i]);
+                }
 
+                for($x=1;$x<count($values);$x+=2) {
+                    array_push($weightArray, $values[$x]);
+                }
+
+                // print_r($repsArray);
+                // echo "<br><br>";
+                // print_r($weightArray);
+                // echo "<br><br>";
+                // print_r($_SESSION['exerciseArray']);
+                // echo "<br><br>";
+                // echo $_SESSION['exerciseArray'][0]['name'];
+                // echo "<br><br>";
+                $repArrayIterator = 0;
+                for($j=0;$j<count($_SESSION['exerciseArray']);$j++) {
+                    $exID = $_SESSION['exerciseArray'][$j]['exID'];
+                    for($k=0;$k<$_SESSION['setsPerExercise'][$j];$k++) {
+                        $setNum = $k+1;
+                        $numReps = $repsArray[$repArrayIterator];
+                        $weight = $weightArray[$repArrayIterator];
+                        $repArrayIterator++;
+                        $completedExerciseSQL = "INSERT INTO completed_exercises VALUES($workoutID, $exID, $setNum, $numReps, $weight)";
+                        $completedExercisePrep = $pdo->prepare($completedExerciseSQL);
+                        $completedExercisePrep->execute();
+                        // echo $completedExerciseSQL;
+                        // echo "<br>";
+                    }
+                }
+
+                // echo "<br><br>";
+                // print_r($_SESSION['setsPerExercise']);
+                // echo "<br>";
                 
 
             }
