@@ -52,8 +52,8 @@ for($i = 0; $i < count($data); $i++) {
     <img src=\"...\" class=\"card-img-top\" alt=\"...\">
     <div class=\"card-body\">
       <h5 class=\"card-title\">{$data[$i]['name']}</h5>
-      <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href=\"#\" class=\"btn btn-primary\">Youtube</a>
+      <p class=\"card-text\">{$data[$i]['equipment']}</p>
+      <a href=\"{$data[$i]['videoURL']}\" class=\"btn btn-primary\" target=\"_blank\">Youtube</a>
     </div>
   </div>";
     
