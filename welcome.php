@@ -101,6 +101,9 @@ for($i=0;$i<count($daysOfWeekNextSevenDays);$i++) {
         <li class="nav-item">
             <a class="nav-link" href="complete-workout.php">Complete Workout</a>
         </li>
+        <li class="nav-item" style="position: relative; left: 180%">
+            <a href="logout.php" class="btn btn-secondary">Log Out</a>
+        </li>
         </ul>
     </div>
     </nav>
@@ -109,18 +112,17 @@ for($i=0;$i<count($daysOfWeekNextSevenDays);$i++) {
 
     <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
     </p>
     <br>
     <h5>Here's what you have going on this week</h3>
     
-    <div class="container-fluid mx-auto" style="width: 1400px;">
+    <div class="container">
         <?php
-        echo "<div class=\"row\">";
+        echo "<div class=\"row row-cols-7\">";
         for($i = 0; $i < 7; $i++) {
             //echo "<div class=\"week-glance-item\">";
-            echo "<div class=\"col d-flex align-items-stretch\">
-                <div class=\"card bg-dark text-white\" style=\"width: 10rem;\">
+            echo "<div class=\"col-sm\">
+                <div class=\"card bg-dark text-white\" style=\"width: 100%; height: 10rem;\">
                 <div class=\"card-header\">{$daysOfWeekNextSevenDays[$i]}</div>
                 <div class=\"card-body\">";
                 if($workoutDayMap[$i] == null) {
