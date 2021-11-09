@@ -15,7 +15,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<div class="wrapper">
+<div class="container">
 <?php 
 session_start();
 require_once('config.php');
@@ -39,25 +39,31 @@ $currentMuscle = $data[0]['muscleGroup'];
     echo '<h1><span class="badge badge-secondary">';
     echo $currentMuscle;
     echo '</span></h1>';
+    echo "<div class=\"row\">";
 for($i = 0; $i < count($data); $i++) {
     if($currentMuscle != $data[$i]['muscleGroup']) {
         $currentMuscle = $data[$i]['muscleGroup'];
+        echo "</div>";
         echo '<h1><span class="badge badge-secondary">';
         echo $currentMuscle;
         echo '</span></h1>';
+        echo "<div class=\"row\">";
     }
     //echo '<div class="grid-item">';
     //echo $data[$i]['name'];
-    echo "<div class=\"card\" style=\"width: 18rem;\">
-    <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+    echo "<div class=\"col-lg-3 mb-4\">";
+    echo "<div class=\"card\" style=\"width: 15rem; height: 20rem;\">
+    <img src=\"muscleGroupImages\\dumbbell.jpg\" class=\"card-img-top\" alt=\"...\">
     <div class=\"card-body\">
       <h5 class=\"card-title\">{$data[$i]['name']}</h5>
-      <p class=\"card-text\">{$data[$i]['equipment']}</p>
-      <a href=\"{$data[$i]['videoURL']}\" class=\"btn btn-primary\" target=\"_blank\">Youtube</a>
+      <p class=\"card-text\">Required Equipment: {$data[$i]['equipment']}</p>
+      <a href=\"{$data[$i]['videoURL']}\" class=\"btn btn-primary\" target=\"_blank\">YouTube</a>
     </div>
   </div>";
+  echo '</div>';
     
 }
+echo '</div>';
 //print_r($data);
 ?>
 
