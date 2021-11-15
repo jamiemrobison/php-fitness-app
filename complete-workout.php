@@ -63,7 +63,7 @@ $allUserWorkouts = $getAllUserWorkoutsPrep->fetchAll(PDO::FETCH_ASSOC);
                     if(!empty($allUserWorkouts)) {
                         for($i=0;$i<count($allUserWorkouts);$i++) {
                             $tmpWorkoutDate = $allUserWorkouts[$i]['workoutDate'];
-                            echo "<option value=\"{$allUserWorkouts[$i]['workoutName']}\">{$allUserWorkouts[$i]['workoutDate']}</option>";
+                            echo "<option value=\"{$allUserWorkouts[$i]['workoutName']}\">{$allUserWorkouts[$i]['workoutDate']}\t{$allUserWorkouts[$i]['workoutName']}</option>";
                         }
                     }
                 ?>
@@ -87,7 +87,7 @@ $allUserWorkouts = $getAllUserWorkoutsPrep->fetchAll(PDO::FETCH_ASSOC);
             for($i=1; $i<=count($exerciseArray);$i++) {
                 echo "<form action=\"/fitness-app/php-fitness-app/complete-workout.php\" method=\"post\">
                     <div class=\"form-group\">
-                    <label for=\"exercise{$i}sets\">Exercise {$i} Sets</label>
+                    <label for=\"exercise{$i} sets\">Exercise {$i}. {$_SESSION['exerciseArray'][$i - 1]['name']} Sets</label>
                     <select class=\"form-control\" name=\"exercise{$i}sets\">"; 
 
                     for($j=1;$j<=10;$j++) {
