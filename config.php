@@ -4,7 +4,7 @@
     define('DB_PASSWORD', '');
     define('DB_NAME', 'fitness_app');
 
-    /* connect to the Maria DB */
+    //Attempt to establish a connection to the database.
     try{
         $pdo = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
 
