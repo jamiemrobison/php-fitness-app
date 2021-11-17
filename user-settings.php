@@ -27,7 +27,7 @@ $userInfo = $userInfoPrep->fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">IronWorks</a>
+        <a class="navbar-brand" href="welcome.php">IronWorks</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
