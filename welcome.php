@@ -82,7 +82,7 @@ for($i=0;$i<count($daysOfWeekNextSevenDays);$i++) {
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">IronWorks</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -101,13 +101,16 @@ for($i=0;$i<count($daysOfWeekNextSevenDays);$i++) {
         <li class="nav-item">
             <a class="nav-link" href="complete-workout.php">Complete Workout</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="user-settings.php">Settings</a>
+        </li>
         <li class="nav-item" style="position: relative; left: 180%">
             <a href="logout.php" class="btn btn-secondary">Log Out</a>
         </li>
         </ul>
     </div>
     </nav>
-
+    
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to the site.</h1>
 
     <p>
