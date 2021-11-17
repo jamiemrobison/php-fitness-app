@@ -8,6 +8,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+$userInfoSQL = "SELECT username, fname, lname, weight, height FROM users WHERE userID = {$_SESSION['id']}";
+$userInfoPrep = $pdo->prepare($userInfoSQL);
+$userInfoPrep->execute();
+$userInfo = $userInfoPrep->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -49,5 +54,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </ul>
     </div>
     </nav>
+    <div class="container">
+        <div class="card">
+        </div>
+    </div>
 </body>
 </html>
