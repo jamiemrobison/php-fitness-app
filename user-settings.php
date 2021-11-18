@@ -48,7 +48,7 @@ $userInfo = $userInfoPrep->fetch(PDO::FETCH_ASSOC);
         <li class="nav-item active">
             <a class="nav-link" href="user-settings.php">Settings <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item" style="position: relative; left: 180%">
+        <li class="nav-item">
             <a href="logout.php" class="btn btn-secondary">Log Out</a>
         </li>
         </ul>

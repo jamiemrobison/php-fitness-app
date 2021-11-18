@@ -54,7 +54,7 @@ $allUserWorkouts = $getAllUserWorkoutsPrep->fetchAll(PDO::FETCH_ASSOC);
         <li class="nav-item">
             <a class="nav-link" href="user-settings.php">Settings</a>
         </li>
-        <li class="nav-item" style="position: relative; left: 180%">
+        <li class="nav-item">
             <a href="logout.php" class="btn btn-secondary">Log Out</a>
         </li>
         </ul>
