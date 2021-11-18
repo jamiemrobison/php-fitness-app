@@ -34,7 +34,7 @@ $userInfo = $userInfoPrep->fetch(PDO::FETCH_ASSOC);
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="welcome.php">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="welcome.php">Home</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="exercise-library.php">Library</a>
@@ -46,7 +46,7 @@ $userInfo = $userInfoPrep->fetch(PDO::FETCH_ASSOC);
             <a class="nav-link" href="complete-workout.php">Complete Workout</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="user-settings.php">Settings</a>
+            <a class="nav-link" href="user-settings.php">Settings <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" style="position: relative; left: 180%">
             <a href="logout.php" class="btn btn-secondary">Log Out</a>
