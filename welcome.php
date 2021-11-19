@@ -44,10 +44,6 @@
     </nav>
     
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to the site.</h1>
-
-    <p>
-        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-    </p>
     <br>
     <h5>Here's what you have going on this week</h3>
     
