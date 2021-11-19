@@ -1,18 +1,6 @@
 <?php
-// Initialize the session
-session_start();
-require_once('config.php');
- 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
-
-$userInfoSQL = "SELECT username, fname, lname, weight, height FROM users WHERE userID = {$_SESSION['id']}";
-$userInfoPrep = $pdo->prepare($userInfoSQL);
-$userInfoPrep->execute();
-$userInfo = $userInfoPrep->fetch(PDO::FETCH_ASSOC);
+    session_start();
+    include_once('user-info.php');
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +42,46 @@ $userInfo = $userInfoPrep->fetch(PDO::FETCH_ASSOC);
         </ul>
     </div>
     </nav>
-    <div class="container">
-        <div class="card">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 mb-4 mr-4 mt-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="muscleGroupImages/blank-profile-picture.png" alt="profile picture">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <?php displayUserInfo(); ?>
+                            <li class="list-group-item"><a href="reset-password.php" class="btn btn-warning">Reset Your Password</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-4 mr-4 mt-4">
+                <div class="card" style="width: 18rem;">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                        <div class="form-group">
+                            <label for="newUsername">Update Username</label>
+                            <input type="text" class="form-control" name="newUsername" placeholder="Enter a new username">
+                        </div>
+                        <div class="form-group">
+                            <label for="newFname">Update First Name</label>
+                            <input type="text" class="form-control" name="newFname" placeholder="Enter a new first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="newLname">Update Last Name</label>
+                            <input type="text" class="form-control" name="newLname" placeholder="Enter a new last name">
+                        </div>
+                        <div class="form-group">
+                            <label for="newHeight">Update Height</label>
+                            <input type="number" class="form-control" name="newHeight" placeholder="Enter a new height in inches">
+                        </div>
+                        <div class="form-group">
+                            <label for="newWeight">Update Weight</label>
+                            <input type="number" class="form-control" name="newWeight" placeholder="Enter a new weight in lbs">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2" name="submitUserInfo">Update Info</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>
