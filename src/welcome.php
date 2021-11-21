@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include_once("weekView.php"); 
+    include_once("./weekView.php"); 
 ?>
 <!DOCTYPE html>
 <html lang="en">

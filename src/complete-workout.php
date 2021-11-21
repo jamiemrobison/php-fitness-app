@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include('workout-details.php');
+include('./workout-details.php');
 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");

@@ -36,7 +36,7 @@
             $_SESSION['exerciseArray'] = $exerciseArray;
 
             for($i=1; $i<=count($exerciseArray);$i++) {
-                echo "<form action=\"/fitness-app/php-fitness-app/complete-workout.php\" method=\"post\">
+                echo "<form action=\"/fitness-app/php-fitness-app/src/complete-workout.php\" method=\"post\">
                     <div class=\"form-group\">
                     <label for=\"exercise{$i} sets\">Exercise {$i}. {$_SESSION['exerciseArray'][$i - 1]['name']} Sets</label>
                     <select class=\"form-control\" name=\"exercise{$i}sets\">"; 
@@ -59,7 +59,7 @@
                 array_push($_SESSION['setsPerExercise'], $_POST["exercise{$j}sets"]);
             }
             for($i=1;$i<=count($_SESSION['exerciseArray']);$i++) {
-                echo "<form action=\"/fitness-app/php-fitness-app/complete-workout.php\" method=\"post\"><div class=\"form-group\">";
+                echo "<form action=\"/fitness-app/php-fitness-app/src/complete-workout.php\" method=\"post\"><div class=\"form-group\">";
                 for($j=1;$j<=$_POST["exercise{$i}sets"];$j++) {
                     echo "<div class=\"mb-3\"><label class=\"form-label\">"; echo $_SESSION['exerciseArray'][$i-1]['name']; echo " Set {$j} Reps"; echo "</label>";
                     echo "<input type=\"number\" class=\"form-control\" name=\""; echo "ex{$i}set{$j}reps"; echo"\"></div>";

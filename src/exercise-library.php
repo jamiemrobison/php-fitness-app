@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include_once("exercises.php");
+    include_once("./exercises.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

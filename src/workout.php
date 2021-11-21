@@ -38,7 +38,7 @@
 
 
             for($i=1;$i<=$_POST['numExercises'];$i++) {
-                echo "<form action=\"/fitness-app/php-fitness-app/add-workout.php\" method=\"post\">
+                echo "<form action=\"/fitness-app/php-fitness-app/src/add-workout.php\" method=\"post\">
                 <div class=\"form-group\">
                 <label for=\"exercise{$i}\">Exercise</label>
                 <select class=\"form-control\" name=\"exercise{$i}\">";
