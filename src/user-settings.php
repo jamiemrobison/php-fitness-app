@@ -58,23 +58,23 @@
             <div class="col-lg-3 mb-4 mr-4 mt-4">
                 <div class="card" style="width: 18rem;">
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <div class="form-group">
+                        <div class="form-group m-4">
                             <label for="newUsername">Update Username</label>
                             <input type="text" class="form-control" name="newUsername" placeholder="Enter a new username">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group m-4">
                             <label for="newFname">Update First Name</label>
                             <input type="text" class="form-control" name="newFname" placeholder="Enter a new first name">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group m-4">
                             <label for="newLname">Update Last Name</label>
                             <input type="text" class="form-control" name="newLname" placeholder="Enter a new last name">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group m-4">
                             <label for="newHeight">Update Height</label>
                             <input type="number" class="form-control" name="newHeight" placeholder="Enter a new height in inches">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group m-4">
                             <label for="newWeight">Update Weight</label>
                             <input type="number" class="form-control" name="newWeight" placeholder="Enter a new weight in lbs">
                         </div>
