@@ -10,8 +10,8 @@
         }
 
 
-        $sql = "SELECT * FROM exercises";
 
+        $sql = "SELECT * FROM exercises";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -19,21 +19,26 @@
 
 
         $currentMuscle = $data[0]['muscleGroup'];
-            echo '<h1><span class="badge badge-secondary">';
-            echo $currentMuscle;
-            echo '</span></h1>';
+
+
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Chest\" role=\"button\" aria-expanded=\"false\" aria-controls=\"chest\">Chest</a>";           
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Back\" role=\"button\" aria-expanded=\"false\" aria-controls=\"back\">Back</a>";            
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Triceps\" role=\"button\" aria-expanded=\"false\" aria-controls=\"triceps\">Triceps</a>";           
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Biceps\" role=\"button\" aria-expanded=\"false\" aria-controls=\"biceps\">Biceps</a>";            
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Legs\" role=\"button\" aria-expanded=\"false\" aria-controls=\"legs\">Legs</a>";            
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Shoulders\" role=\"button\" aria-expanded=\"false\" aria-controls=\"shoulders\">Shoulders</a>";
+
+            echo "<div class=\"collapse\" id=\"{$currentMuscle}\">";
             echo "<div class=\"row\">";
         for($i = 0; $i < count($data); $i++) {
             if($currentMuscle != $data[$i]['muscleGroup']) {
                 $currentMuscle = $data[$i]['muscleGroup'];
-                echo "</div>";
-                echo '<h1><span class="badge badge-secondary">';
-                echo $currentMuscle;
-                echo '</span></h1>';
+                echo "<hr style=\"width:100%\", size=\"6\", color=black>";
+                echo "</div></div>";
+                echo "<div class=\"collapse\" id=\"{$currentMuscle}\">";
                 echo "<div class=\"row\">";
             }
-            //echo '<div class="grid-item">';
-            //echo $data[$i]['name'];
+            
             echo "<div class=\"col-lg-3 mb-4\">";
             echo "<div class=\"card\" style=\"width: 15rem; height: 20rem;\">
             <img src=\"..\\muscleGroupImages\\dumbbell.jpg\" class=\"card-img-top\" alt=\"...\">
@@ -47,7 +52,7 @@
             
         }
         echo '</div>';
-        //print_r($data);
+        
 
     }
 ?>
