@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once('user-info.php');
+    include('./user-info.php');
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <?php displayUserInfo(); ?>
-                            <li class="list-group-item"><a href="reset-password.php" class="btn btn-warning">Reset Your Password</a></li>
+                            <li class="list-group-item"><a href="./reset-password.php" class="btn btn-warning">Reset Your Password</a></li>
                         </ul>
                     </div>
                 </div>
@@ -80,6 +80,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary mb-2" name="submitUserInfo">Update Info</button>
                     </form>
+                    <?php updateUserInfo(); ?>
                 </div>
             </div>
         </div>
