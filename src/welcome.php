@@ -1,6 +1,7 @@
 <?php 
     session_start();
-    include_once("./weekView.php"); 
+    include("./weekView.php"); 
+    include("./user-info.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,10 +45,28 @@
     </nav>
     
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to the site.</h1>
-    <br>
-    <h5>Here's what you have going on this week</h3>
-    
     <div class="container">
+        <div class="card mb-4" style="width: 25rem;">
+        <div class="row">
+            <div class="col">
+                <img class="card-img-top" src="../muscleGroupImages/blank-profile-picture.png" style="height: 100%;">
+            </div>
+            <div class = "col">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                    <?php
+                        echo "<li class=\"list-group-item\">{$_SESSION['fname']}\t{$_SESSION['lname']}</li>";
+                        echo "<li class=\"list-group-item\">Height: {$_SESSION['height']}</li>";
+                        echo "<li class=\"list-group-item\">Weight: {$_SESSION['weight']}</li>";
+                    ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="container">
+        <h5>Here's what you have going on this week</h3>
         <?php displayWeekViewCards(); ?>
     </div>
 </body>
