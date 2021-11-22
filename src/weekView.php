@@ -1,5 +1,7 @@
 <?php
-    function displayWeekViewCards() {
+    require_once('config.php');
+
+    function displayWeekViewCards($pdo) {
         session_start();
         require_once('config.php');
  

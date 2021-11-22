@@ -1,7 +1,7 @@
 <?php 
     session_start();
     include("./weekView.php"); 
-    include("./user-info.php");
+    //include("./user-info.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +67,7 @@
     </div>
     <div class="container">
         <h5>Here's what you have going on this week</h3>
-        <?php displayWeekViewCards(); ?>
+        <?php displayWeekViewCards($pdo); ?>
     </div>
 </body>
 </html>
