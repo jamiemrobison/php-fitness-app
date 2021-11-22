@@ -60,15 +60,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <label for="workouts">Select Workout To Input Data For:</label>
                 <select class="form-control" name="workoutName">
                 <?php
-                    displayUserWorkoutOptions();
+                    displayUserWorkoutOptions($pdo);
                 ?>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary mb-2" name="getExerciseFields">Next</button>
         </form>
         <?php 
-            generateWorkoutDetailsForm();
-            submitExerciseDetails();
+            generateWorkoutDetailsForm($pdo);
+            submitExerciseDetails($pdo);
         ?>
     </div>
     

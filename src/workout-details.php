@@ -1,14 +1,14 @@
 <?php 
     session_start();
+    require_once('config.php');
     
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         header("location: login.php");
         exit;
     }
 
-    function displayUserWorkoutOptions() {
+    function displayUserWorkoutOptions($pdo) {
         if(!isset($_POST['getExerciseFields'])) {
-            require_once('config.php');
             $getAllUserWorkoutsSQL = "SELECT workoutName, numExercises, workoutDate, workoutID FROM workouts WHERE userID = {$_SESSION['id']}";
             $getAllUserWorkoutsPrep = $pdo->prepare($getAllUserWorkoutsSQL);
             $getAllUserWorkoutsPrep->execute();
@@ -22,9 +22,8 @@
         }
     }
 
-    function generateWorkoutDetailsForm() {
+    function generateWorkoutDetailsForm($pdo) {
         if(isset($_POST['getExerciseFields'])) {
-            require_once('config.php');
             $workoutName = $_POST['workoutName'];
             $_SESSION['workoutName'] = $workoutName;
         
@@ -71,50 +70,49 @@
         }
     }
         
-        function submitExerciseDetails() {
-            if(isset($_POST['submitWeightAndReps'])) {
-                require('config.php');
-                $fields = array();
-                $values = array();
-                foreach($_POST as $field => $value) {
-                    $fields[] = $field;
-                    $values[] = $value;
-                }
-    
-                $userID = $_SESSION['id'];
-                $workoutName = $_SESSION['workoutName'];
-    
-                $getWorkoutID = "SELECT workoutID from workouts WHERE workoutName='$workoutName' AND userID=$userID";
-                $getWorkoutIDPrep = $pdo->prepare($getWorkoutID);
-                $getWorkoutIDPrep->execute();
-                $workoutIDarr = $getWorkoutIDPrep->fetch(PDO::FETCH_ASSOC);
-                $workoutID = $workoutIDarr['workoutID'];
-
-                $repsArray = array();
-                $weightArray = array();
-                for($i=0;$i<count($values)-1;$i+=2) {
-                    array_push($repsArray, $values[$i]);
-                }
-    
-                for($x=1;$x<count($values);$x+=2) {
-                    array_push($weightArray, $values[$x]);
-                }
-    
-                $repArrayIterator = 0;
-                for($j=0;$j<count($_SESSION['exerciseArray']);$j++) {
-                    $exID = $_SESSION['exerciseArray'][$j]['exID'];
-                    for($k=0;$k<$_SESSION['setsPerExercise'][$j];$k++) {
-                        $setNum = $k+1;
-                        $numReps = $repsArray[$repArrayIterator];
-                        $weight = $weightArray[$repArrayIterator];
-                        $repArrayIterator++;
-                        $completedExerciseSQL = "INSERT INTO completed_exercises VALUES($workoutID, $exID, $setNum, $numReps, $weight)";
-                        $completedExercisePrep = $pdo->prepare($completedExerciseSQL);
-                        $completedExercisePrep->execute();
-                    }
-                }
-                
+    function submitExerciseDetails($pdo) {
+        if(isset($_POST['submitWeightAndReps'])) {
+            $fields = array();
+            $values = array();
+            foreach($_POST as $field => $value) {
+                $fields[] = $field;
+                $values[] = $value;
             }
+
+            $userID = $_SESSION['id'];
+            $workoutName = $_SESSION['workoutName'];
+
+            $getWorkoutID = "SELECT workoutID from workouts WHERE workoutName='$workoutName' AND userID=$userID";
+            $getWorkoutIDPrep = $pdo->prepare($getWorkoutID);
+            $getWorkoutIDPrep->execute();
+            $workoutIDarr = $getWorkoutIDPrep->fetch(PDO::FETCH_ASSOC);
+            $workoutID = $workoutIDarr['workoutID'];
+
+            $repsArray = array();
+            $weightArray = array();
+            for($i=0;$i<count($values)-1;$i+=2) {
+                array_push($repsArray, $values[$i]);
+            }
+
+            for($x=1;$x<count($values);$x+=2) {
+                array_push($weightArray, $values[$x]);
+            }
+
+            $repArrayIterator = 0;
+            for($j=0;$j<count($_SESSION['exerciseArray']);$j++) {
+                $exID = $_SESSION['exerciseArray'][$j]['exID'];
+                for($k=0;$k<$_SESSION['setsPerExercise'][$j];$k++) {
+                    $setNum = $k+1;
+                    $numReps = $repsArray[$repArrayIterator];
+                    $weight = $weightArray[$repArrayIterator];
+                    $repArrayIterator++;
+                    $completedExerciseSQL = "INSERT INTO completed_exercises VALUES($workoutID, $exID, $setNum, $numReps, $weight)";
+                    $completedExercisePrep = $pdo->prepare($completedExerciseSQL);
+                    $completedExercisePrep->execute();
+                }
+            }
+            
         }
+    }
         
 ?>
