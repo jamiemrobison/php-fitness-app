@@ -53,10 +53,12 @@
             $updateUserInfoSQL = "UPDATE users SET username='$username', fname='$fname', lname='$lname', height=$height, weight=$weight WHERE userID=$id";
             $updateUserInfoPrep = $pdo->prepare($updateUserInfoSQL);
             $updateUserInfoPrep->execute();
-
-
             
             $_SESSION['username'] = $username;
+            $_SESSION["fname"] = $fname;
+            $_SESSION["lname"] = $lname;
+            $_SESSION["height"] = $height;
+            $_SESSION["weight"] = $weight; 
 
         }
     }
