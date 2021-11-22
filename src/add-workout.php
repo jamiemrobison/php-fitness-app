@@ -74,8 +74,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </form>
 
         <?php
-            displayExerciseFields();
-            submitWorkout();
+            displayExerciseFields($pdo);
+            submitWorkout($pdo);
         ?>
     </div>
 </body>

@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    require_once('config.php');
     
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         header("location: login.php");
@@ -22,10 +23,8 @@
         if(isset($_POST['workoutDate'])) echo "value=\"{$_POST['workoutDate']}\"";
     }
 
-    function displayExerciseFields() {
+    function displayExerciseFields($pdo) {
         if(isset($_POST['workoutName'])) {
-            // echo "<div>displayFields gets called</div>";
-            require_once('config.php');
             $sql = "SELECT * FROM exercises";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
@@ -56,10 +55,8 @@
         }
     }
 
-    function submitWorkout() {
+    function submitWorkout($pdo) {
         if(isset($_POST['submitWorkout'])) {
-            require_once('config.php');
-
             $workoutDate = $_SESSION['workoutDate'];
             $userID = $_SESSION['id'];
             $workoutName = $_SESSION['workoutName'];
