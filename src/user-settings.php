@@ -49,7 +49,7 @@
                     <img class="card-img-top" src="../muscleGroupImages/blank-profile-picture.png" alt="profile picture">
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <?php displayUserInfo(); ?>
+                            <?php displayUserInfo($pdo); ?>
                             <li class="list-group-item"><a href="./reset-password.php" class="btn btn-warning">Reset Your Password</a></li>
                         </ul>
                     </div>
@@ -60,27 +60,27 @@
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group m-4">
                             <label for="newUsername">Update Username</label>
-                            <input type="text" class="form-control" name="newUsername" placeholder="Enter a new username">
+                            <input type="text" class="form-control" name="newUsername" placeholder="Enter a new username" required>
                         </div>
                         <div class="form-group m-4">
                             <label for="newFname">Update First Name</label>
-                            <input type="text" class="form-control" name="newFname" placeholder="Enter a new first name">
+                            <input type="text" class="form-control" name="newFname" placeholder="Enter a new first name" required>
                         </div>
                         <div class="form-group m-4">
                             <label for="newLname">Update Last Name</label>
-                            <input type="text" class="form-control" name="newLname" placeholder="Enter a new last name">
+                            <input type="text" class="form-control" name="newLname" placeholder="Enter a new last name" required>
                         </div>
                         <div class="form-group m-4">
                             <label for="newHeight">Update Height</label>
-                            <input type="number" class="form-control" name="newHeight" placeholder="Enter a new height in inches">
+                            <input type="number" class="form-control" name="newHeight" placeholder="Enter a new height in inches" required>
                         </div>
                         <div class="form-group m-4">
                             <label for="newWeight">Update Weight</label>
-                            <input type="number" class="form-control" name="newWeight" placeholder="Enter a new weight in lbs">
+                            <input type="number" class="form-control" name="newWeight" placeholder="Enter a new weight in lbs" required>
                         </div>
                         <button type="submit" class="btn btn-primary mb-2" name="submitUserInfo">Update Info</button>
                     </form>
-                    <?php updateUserInfo(); ?>
+                    <?php updateUserInfo($pdo); ?>
                 </div>
             </div>
         </div>

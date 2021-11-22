@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    require_once('./config.php');
      
     // Check if the user is logged in, if not then redirect him to login page
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -7,8 +8,8 @@
         exit;
     }
 
-    function displayUserInfo() {
-        require_once('./config.php');
+    function displayUserInfo($pdo) {
+        //require_once('./config.php');
         $userInfoSQL = "SELECT username, fname, lname, weight, height FROM users WHERE userID = {$_SESSION['id']}";
         $userInfoPrep = $pdo->prepare($userInfoSQL);
         $userInfoPrep->execute();
@@ -26,9 +27,9 @@
         echo "<li class=\"list-group-item\">Weight: {$userInfo['weight']}</li>";
     }
 
-    function updateUserInfo() {
+    function updateUserInfo($pdo) {
         if(isset($_POST['submitUserInfo'])) {
-            require_once('./config.php');
+            //require_once('./config.php');
             $updateUsername = isset($_POST['newUsername']);
             $updateFname = isset($_POST['newFname']);
             $updateLname = isset($_POST['newLname']);
@@ -48,11 +49,15 @@
             $weight = $updateWeight ? (int) $newWeight : (int) $_SESSION['currentWeight'];
             $id = $_SESSION['id'];
 
-            //TODO: Something keeps making this fail. Works fine in php shell. Has to be something with how  the document is sending the values form the form. (That's why the castings are there in the block above).
-            //This is a problem for future Tyler.
+            //TODO: Okay it works now.... kind of. Making all fields required until I can fix the logic to not "null out" all the other fields if the user just wants to update one or less than all of them.
             $updateUserInfoSQL = "UPDATE users SET username='$username', fname='$fname', lname='$lname', height=$height, weight=$weight WHERE userID=$id";
             $updateUserInfoPrep = $pdo->prepare($updateUserInfoSQL);
             $updateUserInfoPrep->execute();
+
+
+            
+            $_SESSION['username'] = $username;
+
         }
     }
 ?>
