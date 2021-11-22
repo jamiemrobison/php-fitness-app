@@ -21,12 +21,12 @@
         $currentMuscle = $data[0]['muscleGroup'];
 
 
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Chest\" role=\"button\" aria-expanded=\"false\" aria-controls=\"chest\">Chest</a>";           
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Back\" role=\"button\" aria-expanded=\"false\" aria-controls=\"back\">Back</a>";            
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Triceps\" role=\"button\" aria-expanded=\"false\" aria-controls=\"triceps\">Triceps</a>";           
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Biceps\" role=\"button\" aria-expanded=\"false\" aria-controls=\"biceps\">Biceps</a>";            
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Legs\" role=\"button\" aria-expanded=\"false\" aria-controls=\"legs\">Legs</a>";            
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Shoulders\" role=\"button\" aria-expanded=\"false\" aria-controls=\"shoulders\">Shoulders</a>";
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Chest\" role=\"button\" aria-expanded=\"false\" aria-controls=\"chest\" id=\"bootstrap-overrides\">Chest</a>";           
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Back\" role=\"button\" aria-expanded=\"false\" aria-controls=\"back\" id=\"bootstrap-overrides\">Back</a>";            
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Triceps\" role=\"button\" aria-expanded=\"false\" aria-controls=\"triceps\" id=\"bootstrap-overrides\">Triceps</a>";           
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Biceps\" role=\"button\" aria-expanded=\"false\" aria-controls=\"biceps\" id=\"bootstrap-overrides\">Biceps</a>";            
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Legs\" role=\"button\" aria-expanded=\"false\" aria-controls=\"legs\" id=\"bootstrap-overrides\">Legs</a>";            
+            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Shoulders\" role=\"button\" aria-expanded=\"false\" aria-controls=\"shoulders\" id=\"bootstrap-overrides\">Shoulders</a>";
 
             echo "<div class=\"collapse\" id=\"{$currentMuscle}\">";
             echo "<div class=\"row\">";
