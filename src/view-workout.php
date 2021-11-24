@@ -34,7 +34,7 @@
         <li class="nav-item">
             <a class="nav-link" href="complete-workout.php">Complete Workout</a>
         </li>
-        <li class="nav-item" active>
+        <li class="nav-item active">
             <a class="nav-link" href="view-workout.php">View Workout <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">

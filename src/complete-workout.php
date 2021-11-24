@@ -46,6 +46,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <a class="nav-link" href="complete-workout.php">Complete Workout <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="view-workout.php">View Workout</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="user-settings.php">Settings</a>
         </li>
         <li class="nav-item">
