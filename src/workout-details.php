@@ -114,5 +114,40 @@
             
         }
     }
-        
+      
+    function getWorkoutDetails($pdo) {
+        if(isset($_POST['getWorkoutDetails'])) {
+            $findWorkoutSQL = "SELECT * FROM completed_exercises NATURAL JOIN workouts WHERE workoutName='{$_POST['workoutName']}' AND userID={$_SESSION['id']}";
+            $findWorkoutPrep = $pdo->prepare($findWorkoutSQL);
+            $findWorkoutPrep->execute();
+            
+            if($findWorkoutPrep->rowCount() < 1) {
+                //get the exercises for the workout and display them
+                $sql = "SELECT name, muscleGroup FROM workout_details NATURAL JOIN exercises NATURAL JOIN workouts WHERE workoutName='{$_POST['workoutName']}' AND userID={$_SESSION['id']}";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+                $workout = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                echo "<div class=\"card-header\">Planned Exercises</div>";
+                echo "<ul class=\"list-group list-group-flush\">";
+                foreach ($workout as &$exercise) {
+                    echo "<li class=\"list-group-item\">{$exercise['name']}</li>";
+                }
+                echo "</ul>";
+            } else {
+                //get the exercises, and the set data for each exercise, and display them.
+                $sql = "SELECT name, muscleGroup, numSet, reps, weight FROM workout_details NATURAL JOIN exercises NATURAL JOIN workouts NATURAL JOIN completed_exercises WHERE workoutName='{$_POST['workoutName']}' AND userID={$_SESSION['id']}";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+                $workout = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                
+                echo "<div class=\"card-header\">Details</div>";
+                echo "<ul class=\"list-group list-group-flush\">";
+                foreach ($workout as &$exercise) {
+                    echo "<li class=\"list-group-item\">{$exercise['name']}\tSet: {$exercise['numSet']}\t{$exercise['reps']} Reps at\t{$exercise['weight']} lbs</li>";
+                }
+                echo "</ul>";
+            }
+        }
+    }
 ?>
