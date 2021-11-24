@@ -1,6 +1,7 @@
 <?php 
     session_start();
-    include("./weekView.php"); 
+    include_once("./weekView.php"); 
+    include_once("./thousand-pound.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +49,8 @@
     
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to the site.</h1>
     <div class="container">
-        <div class="card mb-4" style="width: 25rem;">
+        <div class="row">
+        <div class="card m-4" style="width: 25rem;">
         <div class="row">
             <div class="col">
                 <img class="card-img-top" src="../muscleGroupImages/blank-profile-picture.png" style="height: 100%;">
@@ -64,6 +66,10 @@
                     </ul>
                 </div>
             </div>
+        </div>
+        </div>
+        <div class="card m-4" style="width: 25rem;">
+            <?php getMaxLifts($pdo); ?>
         </div>
         </div>
     </div>
