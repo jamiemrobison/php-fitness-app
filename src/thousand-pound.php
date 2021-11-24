@@ -37,9 +37,15 @@
         <ul class=\"list-group list-group-flush\">
         <li class=\"list-group-item\">Deadlift: {$maxDeadlift} lbs</li>
         <li class=\"list-group-item\">Bench Press: {$maxBenchPress} lbs</li>
-        <li class=\"list-group-item\">Squat: {$maxSquat} lbs</li>
-        <li class=\"list-group-item\">Total: {$total} lbs. Only {$diff1000} lbs to go!</li>
-        </ul>";
+        <li class=\"list-group-item\">Squat: {$maxSquat} lbs</li>";
+
+        if($total < 1000) {
+            echo "<li class=\"list-group-item\">Total: {$total} lbs. Only {$diff1000} lbs to go!</li>";
+        } else if($total >= 1000) {
+            echo "<li class=\"list-group-item\">Total: {$total} lbs. Great Job!</li>";
+        }
+        echo "</ul>";
+        
     }
 
 ?>
