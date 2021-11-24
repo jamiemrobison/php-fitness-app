@@ -47,7 +47,14 @@
     </div>
     </nav>
     
-    <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to the site.</h1>
+   
+
+    <div class="jumbotron">
+    <h1 class="display-4">Hello, <?php echo htmlspecialchars($_SESSION["username"]); ?></h1>
+    <p class="lead">Welcome to IronWorks. The fitness tracking application for weightlifters.</p>
+    <hr class="my-4">
+    </div>
+
     <div class="container">
         <div class="row">
         <div class="card m-4" style="width: 25rem;">
@@ -74,7 +81,7 @@
         </div>
     </div>
     <div class="container">
-        <h5>Here's what you have going on this week</h3>
+        <h5>Here's what you have going on this week</h5>
         <?php displayWeekViewCards($pdo); ?>
     </div>
 </body>

@@ -62,7 +62,7 @@
         echo "<div class=\"row row-cols-7\">";
         for($i = 0; $i < 7; $i++) {
             echo "<div class=\"col-sm\">
-                <div class=\"card bg-dark text-white\" style=\"width: 100%; height: 10rem;\">
+                <div class=\"card bg-light\" style=\"width: 100%; height: 10rem;\">
                 <div class=\"card-header\">{$daysOfWeekNextSevenDays[$i]}</div>
                 <div class=\"card-body\">";
                 if($workoutDayMap[$i] == null) {
