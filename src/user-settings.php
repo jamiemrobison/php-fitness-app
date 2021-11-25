@@ -39,10 +39,8 @@
         <li class="nav-item active">
             <a class="nav-link" href="user-settings.php">Settings <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-            <a href="logout.php" class="btn btn-secondary">Log Out</a>
-        </li>
         </ul>
+        <a href="logout.php" class="btn btn-secondary" style="margin-left: auto; margin-right: 0;">Log Out</a>
     </div>
     </nav>
     <div class="container-fluid">

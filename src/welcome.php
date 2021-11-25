@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
         <a class="navbar-brand" href="welcome.php">IronWorks</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,11 +39,9 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="user-settings.php">Settings</a>
-        </li>
-        <li class="nav-item">
-            <a href="logout.php" class="btn btn-secondary">Log Out</a>
-        </li>
+        </li>  
         </ul>
+        <a href="logout.php" class="btn btn-secondary" style="margin-left: auto; margin-right: 0;">Log Out</a>
     </div>
     </nav>
     
