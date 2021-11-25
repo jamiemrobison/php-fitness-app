@@ -55,7 +55,7 @@
 
     <div class="container">
         <div class="row">
-        <div class="card m-4" style="width: 25rem;">
+        <div class="card m-4" style="width: 28rem;">
         <div class="row">
             <div class="col">
                 <img class="card-img-top" src="../muscleGroupImages/blank-profile-picture.png" style="height: 100%;">
@@ -65,15 +65,15 @@
                     <ul class="list-group list-group-flush">
                     <?php
                         echo "<li class=\"list-group-item\">{$_SESSION['fname']}\t{$_SESSION['lname']}</li>";
-                        echo "<li class=\"list-group-item\">Height: {$_SESSION['height']}</li>";
-                        echo "<li class=\"list-group-item\">Weight: {$_SESSION['weight']}</li>";
+                        echo "<li class=\"list-group-item\">Height: {$_SESSION['height']} inches</li>";
+                        echo "<li class=\"list-group-item\">Weight: {$_SESSION['weight']} pounds</li>";
                     ?>
                     </ul>
                 </div>
             </div>
         </div>
         </div>
-        <div class="card m-4" style="width: 25rem;">
+        <div class="card m-4" style="width: 28rem;">
             <?php getMaxLifts($pdo); ?>
         </div>
         </div>

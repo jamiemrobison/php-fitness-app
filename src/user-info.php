@@ -23,8 +23,8 @@
 
         echo "<li class=\"list-group-item\">Username: {$userInfo['username']}</li>";
         echo "<li class=\"list-group-item\">Full Name: {$userInfo['fname']}\t{$userInfo['lname']}</li>";
-        echo "<li class=\"list-group-item\">Height: {$userInfo['height']}</li>";
-        echo "<li class=\"list-group-item\">Weight: {$userInfo['weight']}</li>";
+        echo "<li class=\"list-group-item\">Height: {$userInfo['height']} inches</li>";
+        echo "<li class=\"list-group-item\">Weight: {$userInfo['weight']} pounds</li>";
     }
 
     function updateUserInfo($pdo) {
