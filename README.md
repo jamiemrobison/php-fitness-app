@@ -9,4 +9,4 @@ Fitness web application using the Bitnami WAMP stack. Primarily focused on weigh
   - Open register.php in your browser to make an account.  
 ### This should get you up and running to make changes and test.
 
-![Homepage](/muscleGroupImages/ironworkswelcomepage.PNG)
+![Homepage](/muscleGroupImages/ironworkwelcomepage.PNG)
