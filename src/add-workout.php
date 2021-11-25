@@ -17,8 +17,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <title>Add Workout</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
+        body{ font: 14px sans-serif; text-align: center; background-color: #F5FCFC; }
     </style>
 </head>
 <body>
@@ -56,7 +55,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </ul>
     </div>
     </nav>
-    <div class="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="card bg-light m-4" style="width: 20rem;">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
                 <label>Workout Name</label>
@@ -75,11 +76,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <button type="submit" class="btn btn-primary mb-2" name="submitNumExercises">Generate Exercise Fields</button>
 
         </form>
-
+        </div>
         <?php
             displayExerciseFields($pdo);
             submitWorkout($pdo);
         ?>
+        </div>
     </div>
 </body>
 </html>

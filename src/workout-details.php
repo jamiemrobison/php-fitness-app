@@ -34,6 +34,7 @@
             $exerciseArray = $getAllExerciseNamesOfWorkoutPrep->fetchAll(PDO::FETCH_ASSOC);
             $_SESSION['exerciseArray'] = $exerciseArray;
 
+            echo "<div class=\"card bg-light ml-4\" style=\"width: 22rem;\">";
             for($i=1; $i<=count($exerciseArray);$i++) {
                 echo "<form action=\"/fitness-app/php-fitness-app/src/complete-workout.php\" method=\"post\">
                     <div class=\"form-group\">
@@ -48,7 +49,7 @@
                     </div>";
             }
             echo "<button type=\"submit\" class=\"btn btn-primary mb-2\" name=\"submitSets\">Generate Reps and Weight Fields</button>";
-                echo "</form>";
+                echo "</form></div>";
         
         }
 
@@ -57,16 +58,17 @@
             for($j=1;$j<count($_POST);$j++) {
                 array_push($_SESSION['setsPerExercise'], $_POST["exercise{$j}sets"]);
             }
+            echo "<div class=\"card bg-light m-4\" style=\"width: 22rem;\">";
             for($i=1;$i<=count($_SESSION['exerciseArray']);$i++) {
                 echo "<form action=\"/fitness-app/php-fitness-app/src/complete-workout.php\" method=\"post\"><div class=\"form-group\">";
                 for($j=1;$j<=$_POST["exercise{$i}sets"];$j++) {
                     echo "<div class=\"mb-3\"><label class=\"form-label\">"; echo $_SESSION['exerciseArray'][$i-1]['name']; echo " Set {$j} Reps"; echo "</label>";
-                    echo "<input type=\"number\" class=\"form-control\" name=\""; echo "ex{$i}set{$j}reps"; echo"\"></div>";
+                    echo "<input type=\"number\" class=\"form-control\" name=\""; echo "ex{$i}set{$j}reps"; echo"\" required></div>";
                     echo "<div class=\"mb-1\"><label class=\"form-label\">"; echo $_SESSION['exerciseArray'][$i-1]['name']; echo " Set {$j} Weight"; echo "</label>";
-                    echo "<input type=\"number\" class=\"form-control\" name=\""; echo "ex{$i}set{$j}weight"; echo"\"></div>";
+                    echo "<input type=\"number\" class=\"form-control\" name=\""; echo "ex{$i}set{$j}weight"; echo"\" required></div>";
                 }
             }
-            echo "</div><button type=\"submit\" class=\"btn btn-primary mb-2\" name=\"submitWeightAndReps\">Add Completed Workout to the Database</button></form>";
+            echo "</div><button type=\"submit\" class=\"btn btn-primary mb-2\" name=\"submitWeightAndReps\">Add Completed Workout to the Database</button></form></div>";
         }
     }
         
@@ -111,7 +113,9 @@
                     $completedExercisePrep->execute();
                 }
             }
-            
+            echo "<div class=\"alert alert-success ml-4\" role=\"alert\" style=\"width: 22rem;\">
+            Workout successfully updated!
+          </div>";
         }
     }
       
@@ -144,7 +148,7 @@
                 echo "<div class=\"card-header\">Details</div>";
                 echo "<ul class=\"list-group list-group-flush\">";
                 foreach ($workout as &$exercise) {
-                    echo "<li class=\"list-group-item\">{$exercise['name']}\tSet: {$exercise['numSet']}\t{$exercise['reps']} Reps at\t{$exercise['weight']} lbs</li>";
+                    echo "<li class=\"list-group-item\">{$exercise['name']}\tSet: {$exercise['numSet']}\t|\t{$exercise['reps']} Reps at\t{$exercise['weight']} lbs</li>";
                 }
                 echo "</ul>";
             }

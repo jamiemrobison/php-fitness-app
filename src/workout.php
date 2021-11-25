@@ -35,11 +35,12 @@
             $_SESSION['workoutDate'] = $_POST['workoutDate'];
             $_SESSION['numExercises'] = $_POST['numExercises'];
 
+            echo "<div class=\"card bg-light m-4\" style=\"width: 20rem;\">";
 
             for($i=1;$i<=$_POST['numExercises'];$i++) {
                 echo "<form action=\"/fitness-app/php-fitness-app/src/add-workout.php\" method=\"post\">
                 <div class=\"form-group\">
-                <label for=\"exercise{$i}\">Exercise</label>
+                <label class=\"m-1\" for=\"exercise{$i}\">Exercise {$i}</label>
                 <select class=\"form-control\" name=\"exercise{$i}\">";
 
                 foreach($allExercises as &$exercise) {
@@ -52,6 +53,7 @@
 
             echo "<button type=\"submit\" class=\"btn btn-primary mb-2\" name=\"submitWorkout\">Submit Workout Plan!</button>";
             echo "</form>"; 
+            echo "</div>";
         }
     }
 
