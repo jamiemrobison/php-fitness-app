@@ -14,6 +14,7 @@
     <style>
         body{ font: 14px sans-serif; text-align: center; background-color: #F5FCFC; }
     </style>
+    <script type = "text/javascript" src="./exercise-library-nav.js"></script>
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -50,6 +51,20 @@
         </ul>
     </div>
     </nav>
+    <div class="jumbotron">
+    <h1 class="display-4">Exercise Library</h1>
+    <p class="lead">Select a muscle group to view available exercises for that muscle.</p>
+    <hr class="my-4">
+    <div class="row">
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Chest" role="button" aria-expanded="false" aria-pressed="false" aria-controls="chest" onclick="setLinkStatus(this)" id="chest">Chest</button>           
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Back" role="button" aria-expanded="false" aria-controls="back" onclick="setLinkStatus(this)" id="back">Back</a>            
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Triceps" role="button" aria-expanded="false" aria-controls="triceps" onclick="setLinkStatus(this)" id="triceps">Triceps</a>           
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Biceps" role="button" aria-expanded="false" aria-controls="biceps" onclick="setLinkStatus(this)" id="biceps">Biceps</a>           
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Legs" role="button" aria-expanded="false" aria-controls="legs" onclick="setLinkStatus(this)" id="legs">Legs</a> 
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Shoulders" role="button" aria-expanded="false" aria-controls="shoulders" onclick="setLinkStatus(this)" id="shoulders">Shoulders</a>
+    </div>
+    </div>
+    
     <div class="container-fluid">
         <?php displayExerciseCards(); ?>
     </div>

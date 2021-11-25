@@ -20,14 +20,6 @@
 
         $currentMuscle = $data[0]['muscleGroup'];
 
-
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Chest\" role=\"button\" aria-expanded=\"false\" aria-controls=\"chest\" id=\"bootstrap-overrides\">Chest</a>";           
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Back\" role=\"button\" aria-expanded=\"false\" aria-controls=\"back\" id=\"bootstrap-overrides\">Back</a>";            
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Triceps\" role=\"button\" aria-expanded=\"false\" aria-controls=\"triceps\" id=\"bootstrap-overrides\">Triceps</a>";           
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Biceps\" role=\"button\" aria-expanded=\"false\" aria-controls=\"biceps\" id=\"bootstrap-overrides\">Biceps</a>";            
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Legs\" role=\"button\" aria-expanded=\"false\" aria-controls=\"legs\" id=\"bootstrap-overrides\">Legs</a>";            
-            echo "<a class=\"btn btn-primary m-4\" data-toggle=\"collapse\" href=\"#Shoulders\" role=\"button\" aria-expanded=\"false\" aria-controls=\"shoulders\" id=\"bootstrap-overrides\">Shoulders</a>";
-
             echo "<div class=\"collapse\" id=\"{$currentMuscle}\">";
             echo "<div class=\"row\">";
         for($i = 0; $i < count($data); $i++) {
@@ -38,9 +30,8 @@
                 echo "<div class=\"collapse\" id=\"{$currentMuscle}\">";
                 echo "<div class=\"row\">";
             }
-            
-            echo "<div class=\"col-lg-3 mb-4\">";
-            echo "<div class=\"card\" style=\"width: 15rem; height: 20rem;\">
+              
+            echo "<div class=\"card m-1\" style=\"width: 15rem; height: 20rem;\">
             <img src=\"..\\muscleGroupImages\\dumbbell.jpg\" class=\"card-img-top\" alt=\"...\">
             <div class=\"card-body\">
             <h5 class=\"card-title\">{$data[$i]['name']}</h5>
@@ -48,8 +39,7 @@
             <a href=\"{$data[$i]['videoURL']}\" class=\"btn btn-primary\" target=\"_blank\">YouTube</a>
             </div>
         </div>";
-        echo '</div>';
-            
+           
         }
         echo '</div>';
         
