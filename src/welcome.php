@@ -55,7 +55,7 @@
 
     <div class="container">
         <div class="row">
-        <div class="card m-4" style="width: 28rem;">
+        <div class="card m-4" style="width: 28rem; height: 13rem; ">
         <div class="row">
             <div class="col">
                 <img class="card-img-top" src="../muscleGroupImages/blank-profile-picture.png" style="height: 100%;">
@@ -74,6 +74,9 @@
         </div>
         </div>
         <div class="card m-4" style="width: 28rem;">
+        <div class="card-header">
+            Road To The 1000lb Club
+        </div>
             <?php getMaxLifts($pdo); ?>
         </div>
         </div>
