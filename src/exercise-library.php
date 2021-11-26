@@ -65,7 +65,9 @@
         <form class="form-inline m-1" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='searchTerm'>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button href="./exercise-library.php" class="btn btn-outline-warning my-2 m-1 my-sm-0">Reset</button>
         </form>
+        
     </div>
     </div>
     
