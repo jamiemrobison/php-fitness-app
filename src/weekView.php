@@ -68,7 +68,7 @@
                 if($workoutDayMap[$i] == null) {
                     echo "No Planned Workout";
                 } else {
-                    echo "<a href=\"./view-workout.php?workout={$workoutDayMap[$i]}\">{$workoutDayMap[$i]}</a>";
+                    echo "<a class=\"text-info\" href=\"./view-workout.php?workout={$workoutDayMap[$i]}\">{$workoutDayMap[$i]}</a>";
                 }
                 echo "</div>
             </div>
