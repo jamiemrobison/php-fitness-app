@@ -2,6 +2,11 @@
     session_start();
     include_once("./weekView.php"); 
     include_once("./thousand-pound.php");
+
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        header("location: login.php");
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -16,7 +16,11 @@
 
             if(!empty($allUserWorkouts)) {
                 for($i=0;$i<count($allUserWorkouts);$i++) {
-                    echo "<option value=\"{$allUserWorkouts[$i]['workoutName']}\">{$allUserWorkouts[$i]['workoutDate']}\t{$allUserWorkouts[$i]['workoutName']}</option>";
+                    if($_GET['workout'] == $allUserWorkouts[$i]['workoutName']) {
+                        echo "<option selected=\"selected\" value=\"{$allUserWorkouts[$i]['workoutName']}\">{$allUserWorkouts[$i]['workoutDate']}\t{$allUserWorkouts[$i]['workoutName']}</option>";
+                    } else {
+                        echo "<option value=\"{$allUserWorkouts[$i]['workoutName']}\">{$allUserWorkouts[$i]['workoutDate']}\t{$allUserWorkouts[$i]['workoutName']}</option>";
+                    }
                 }
             }
         }
