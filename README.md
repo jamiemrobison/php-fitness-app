@@ -7,4 +7,6 @@ Fitness web application using the Bitnami WAMP stack. Primarily focused on weigh
   - Run the initializeTables.sql file on that database you created.  
   - In config.php, set the password parameter for your local mysql installation.  
   - Open register.php in your browser to make an account.  
-### This should get you up and running to make changes and test.  
+### This should get you up and running to make changes and test.
+
+![Homepage](/muscleGroupImages/ironworkwelcomepage.PNG)
