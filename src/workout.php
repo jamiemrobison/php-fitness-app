@@ -25,10 +25,24 @@
 
     function displayExerciseFields($pdo) {
         if(isset($_POST['workoutName'])) {
-            $sql = "SELECT * FROM exercises";
+            $id = $_SESSION['id'];
+            $sql = "SELECT * FROM exercises; SELECT workoutDate FROM workouts WHERE userID=$id";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             $allExercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $stmt->nextRowset();
+            $dates = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach($dates as &$workoutDate) {
+                if($workoutDate['workoutDate'] == $_POST['workoutDate']) {
+                    echo "<div class=\"alert alert-danger\" role=\"alert\">
+                    You already have a workout for this day.
+                    </div>";
+                    return;
+                }    
+            }
+           
 
             
             $_SESSION['workoutName'] = $_POST['workoutName'];
@@ -94,6 +108,10 @@
                 $insertExercisePrep = $pdo->prepare($insertExercise);
                 $insertExercisePrep->execute();
             }
+
+            echo "<div class=\"alert alert-success\" role=\"alert\">
+            Added {$workoutName} on {$workoutDate} to your workouts!
+            </div>";
         }
     }
 ?>
