@@ -46,13 +46,12 @@
     </nav>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col" style="flex-grow: 0;">
+        <div class="row justify-content-center">
                 <div class="card mt-4" style="width: 18rem;">
                     <div class="card-header">
                         Select Workout
                     </div>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <form class="m-4" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <select class="form-control" name="workoutName">
                         <?php
                             displayUserWorkoutOptions($pdo);
@@ -61,12 +60,7 @@
                     <button type="submit" class="btn btn-primary m-2" name="getWorkoutDetails">View Workout</button>
                     </form>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card mt-4" style="width: 24rem">
-                    <?php getWorkoutDetails($pdo); ?>
-                </div>
-            </div>
+                <?php getWorkoutDetails($pdo); ?>
         </div>
     </div>
 </body>

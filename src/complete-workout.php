@@ -55,23 +55,25 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
     </nav>
     <div class="container-fluid">
-        <div class="card bg-light m-4" style="width: 22rem;">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group">
-                <label for="workouts">Select Workout To Input Data For:</label>
-                <select class="form-control" name="workoutName">
-                <?php
-                    displayUserWorkoutOptions($pdo);
-                ?>
-                </select>
+        <div class="row justify-content-center" style="margin-top: 20vh;">
+            <div class="card bg-light m-4" style="width: 40rem; height: 15rem;">
+            <form class="m-4" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group">
+                    <label for="workouts">Select Workout To Input Data For:</label>
+                    <select class="form-control" name="workoutName">
+                    <?php
+                        displayUserWorkoutOptions($pdo);
+                    ?>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2" name="getExerciseFields">Next</button>
+            </form>
             </div>
-            <button type="submit" class="btn btn-primary mb-2" name="getExerciseFields">Next</button>
-        </form>
+            <?php 
+                generateWorkoutDetailsForm($pdo);
+                submitExerciseDetails($pdo);
+            ?>
         </div>
-        <?php 
-            generateWorkoutDetailsForm($pdo);
-            submitExerciseDetails($pdo);
-        ?>
     </div>
     
 </body>

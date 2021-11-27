@@ -129,6 +129,8 @@
             $findWorkoutPrep = $pdo->prepare($findWorkoutSQL);
             $findWorkoutPrep->execute();
             
+            echo "<div class=\"card mt-4\" style=\"width: 30rem; height: 15rem;\">";
+
             if($findWorkoutPrep->rowCount() < 1) {
                 //get the exercises for the workout and display them
                 $sql = "SELECT name, muscleGroup FROM workout_details NATURAL JOIN exercises NATURAL JOIN workouts WHERE workoutName='{$_POST['workoutName']}' AND userID={$_SESSION['id']}";
@@ -156,6 +158,8 @@
                 }
                 echo "</ul>";
             }
+
+            echo "</div>";
         }
     }
 ?>

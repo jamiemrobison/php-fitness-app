@@ -53,7 +53,7 @@
     <h1 class="display-4">Exercise Library</h1>
     <p class="lead">Select a muscle group to view available exercises for that muscle.</p>
     <hr class="my-4">
-    <div class="row">
+    <div class="row justify-content-center">
         <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Chest" role="button" aria-expanded="false" aria-pressed="false" aria-controls="chest" onclick="setLinkStatus(this)" id="chest">Chest</button>           
         <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Back" role="button" aria-expanded="false" aria-controls="back" onclick="setLinkStatus(this)" id="back">Back</a>            
         <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Triceps" role="button" aria-expanded="false" aria-controls="triceps" onclick="setLinkStatus(this)" id="triceps">Triceps</a>           
@@ -61,7 +61,7 @@
         <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Legs" role="button" aria-expanded="false" aria-controls="legs" onclick="setLinkStatus(this)" id="legs">Legs</a> 
         <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Shoulders" role="button" aria-expanded="false" aria-controls="shoulders" onclick="setLinkStatus(this)" id="shoulders">Shoulders</a>
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
         <form class="form-inline m-1" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='searchTerm'>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

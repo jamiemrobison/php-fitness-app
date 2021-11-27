@@ -54,9 +54,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
     </nav>
     <div class="container-fluid">
-        <div class="row">
-        <div class="card bg-light m-4" style="width: 20rem;">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="row justify-content-center">
+        <div class="card bg-light m-4" style="width: 40rem; height: 25rem;">
+        <form class="m-4" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
                 <label>Workout Name</label>
                 <input type="text" name="workoutName" class="form-control" <?php displayWorkoutName(); ?> required>

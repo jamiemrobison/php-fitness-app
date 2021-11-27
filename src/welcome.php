@@ -87,7 +87,7 @@
         </div>
     </div>
     <div class="container">
-        <h5>Here's what you have going on this week</h5>
+        <h5>Here's what you have going on this week!</h5>
         <?php displayWeekViewCards($pdo); ?>
     </div>
 </body>

@@ -44,9 +44,8 @@
     </div>
     </nav>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 mb-4 mr-4 mt-4">
-                <div class="card" style="width: 18rem;">
+        <div class="row justify-content-center">
+                <div class="card m-4" style="width: 20rem;">
                     <img class="card-img-top" src="../muscleGroupImages/blank-profile-picture.png" alt="profile picture">
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
@@ -55,9 +54,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 mb-4 mr-4 mt-4">
-                <div class="card" style="width: 18rem;">
+                <div class="card m-4" style="width: 20rem;">
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group m-4">
                             <label for="newUsername">Update Username</label>
@@ -83,7 +80,6 @@
                     </form>
                     <?php updateUserInfo($pdo); ?>
                 </div>
-            </div>
         </div>
     </div>
 </body>
