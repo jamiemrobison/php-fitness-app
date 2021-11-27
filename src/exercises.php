@@ -32,7 +32,7 @@
                 }
                 
                 echo "<div class=\"card m-1\" style=\"width: 15rem; height: 20rem;\">
-                <img src=\"..\\muscleGroupImages\\dumbbell.jpg\" class=\"card-img-top\" alt=\"...\">
+                <img src=\"{$data[$i]['imagePath']}\" class=\"card-img-top\" alt=\"...\">
                 <div class=\"card-body\">
                 <h5 class=\"card-title\">{$data[$i]['name']}</h5>
                 <p class=\"card-text\">Required Equipment: {$data[$i]['equipment']}</p>
@@ -49,7 +49,7 @@
     function searchExercises($pdo) {
         if(isset($_POST['searchTerm'])) {
             $searchTerm = trim($_POST['searchTerm']);
-            $sql = "SELECT name, muscleGroup, equipment, videoURL FROM exercises WHERE name LIKE '%{$searchTerm}%' OR muscleGroup LIKE '%{$searchTerm}%' OR equipment LIKE '%{$searchTerm}%'";
+            $sql = "SELECT name, muscleGroup, equipment, videoURL, imagePath FROM exercises WHERE name LIKE '%{$searchTerm}%' OR muscleGroup LIKE '%{$searchTerm}%' OR equipment LIKE '%{$searchTerm}%'";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             $exercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -63,7 +63,7 @@
             echo "<div class=\"row\">";
             for($i = 0; $i < count($exercises); $i++) {
                 echo "<div class=\"card m-1\" style=\"width: 15rem; height: 20rem;\">
-                <img src=\"..\\muscleGroupImages\\dumbbell.jpg\" class=\"card-img-top\" alt=\"...\">
+                <img src=\"{$exercises[$i]['imagePath']}\" class=\"card-img-top\" alt=\"...\">
                 <div class=\"card-body\">
                 <h5 class=\"card-title\">{$exercises[$i]['name']}</h5>
                 <p class=\"card-text\">Required Equipment: {$exercises[$i]['equipment']}</p>
