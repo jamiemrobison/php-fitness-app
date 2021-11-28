@@ -39,6 +39,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <a class="nav-link" href="exercise-library.php">Library</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="monthly-calendar.php">Calendar</a>
+        </li>  
+        <li class="nav-item">
             <a class="nav-link" href="add-workout.php">New Workout</a>
         </li>
         <li class="nav-item active">
