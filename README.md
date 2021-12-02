@@ -1,5 +1,5 @@
 # php-fitness-app
-Fitness web application using the Bitnami WAMP stack. Primarily focused on weightlifting.  
+Fitness web application using the Bitnami WAMP stack. Primarily focused on weightlifting. Project for college web development course.
 
 ## Set up instructions (for group members):  
   - Clone this repository to your apache/htdocs directory.  
