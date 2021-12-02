@@ -1,7 +1,7 @@
 # php-fitness-app
 Fitness web application using the Bitnami WAMP stack. Primarily focused on weightlifting.  
 
-## Set up instructions:  
+## Set up instructions (for group members):  
   - Clone this repository to your apache/htdocs directory.  
   - Add a database to your mysql called fitness_app.  
   - Run the initializeTables.sql file on that database you created.  
