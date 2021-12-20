@@ -58,11 +58,11 @@
     <hr class="my-4">
     <div class="row justify-content-center">
         <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Chest" role="button" aria-expanded="false" aria-pressed="false" aria-controls="chest" onclick="setLinkStatus(this)" id="chest">Chest</button>           
-        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Back" role="button" aria-expanded="false" aria-controls="back" onclick="setLinkStatus(this)" id="back">Back</a>            
-        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Triceps" role="button" aria-expanded="false" aria-controls="triceps" onclick="setLinkStatus(this)" id="triceps">Triceps</a>           
-        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Biceps" role="button" aria-expanded="false" aria-controls="biceps" onclick="setLinkStatus(this)" id="biceps">Biceps</a>           
-        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Legs" role="button" aria-expanded="false" aria-controls="legs" onclick="setLinkStatus(this)" id="legs">Legs</a> 
-        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Shoulders" role="button" aria-expanded="false" aria-controls="shoulders" onclick="setLinkStatus(this)" id="shoulders">Shoulders</a>
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Back" role="button" aria-expanded="false" aria-controls="back" onclick="setLinkStatus(this)" id="back">Back</button>            
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Triceps" role="button" aria-expanded="false" aria-controls="triceps" onclick="setLinkStatus(this)" id="triceps">Triceps</button>           
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Biceps" role="button" aria-expanded="false" aria-controls="biceps" onclick="setLinkStatus(this)" id="biceps">Biceps</button>           
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Legs" role="button" aria-expanded="false" aria-controls="legs" onclick="setLinkStatus(this)" id="legs">Legs</button> 
+        <button class="btn btn-outline-secondary m-1" data-toggle="collapse" href="#Shoulders" role="button" aria-expanded="false" aria-controls="shoulders" onclick="setLinkStatus(this)" id="shoulders">Shoulders</button>
     </div>
     <div class="row justify-content-center">
         <form class="form-inline m-1" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
